@@ -1,0 +1,3 @@
+---
+# playbooks to apply to the vms...
+- import_playbook: consul.yml

@@ -1,0 +1,27 @@
+---
+pki_dir: '{{ playbook_dir }}/pki-dir'
+pki_names:
+  - C: US
+    L: Englewood
+    O: Drewfus
+    OU: Head Quarters
+    ST: New Jersey
+
+pki_key:
+  algo: rsa
+  size: 4096
+
+pki_self_sign: True
+pki_ca:
+  cname: ca.vagrant.test
+
+pki_servers:
+  - cname: alpine-1.vagrant.test
+    altips:
+      - 192.168.99.10
+  - cname: alpine-2.vagrant.test
+    altips:
+      - 192.168.33.11
+  - cname: alpine-3.vagrant.test
+    altips:
+      - 192.168.33.12

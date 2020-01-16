@@ -1,0 +1,6 @@
+---
+# required roles applied to the vms...
+- role: andrewrothstein.sshkey
+  version: v1.1.0
+- role: andrewrothstein.consul-cluster
+  version: v4.0.0
