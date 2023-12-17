@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_host = true
   config.hostmanager.manage_guest = true
 
-  config.vm.box = "generic/alpine310"
+  config.vm.box = "generic/alpine319"
 
   (1..$num_instances).each do |i|
     config.vm.define vm_name = "alpine-#{i}.vagrant.test" do |config|

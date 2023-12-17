@@ -1,0 +1,30 @@
+---
+version: '3'
+tasks:
+  clean:
+    cmds:
+      - rm -rf pki-dir/
+      - vagrant destroy -f
+      - rm -rf .ansible-roles/ .ansible-factcache/
+  ping:
+    cmds:
+      - ansible -m ping vms
+  converge:
+    deps:
+      - task: ping
+    cmds:
+      - ansible-galaxy install -f -r requirements.yml
+      - ansible-playbook playbook.yml
+  pki:
+    cmds:
+      - ansible-galaxy install -f -r pki-requirements.yml
+      - ansible-playbook ca.yml
+  init:
+    cmds:
+      - vagrant plugin list
+      - vagrant plugin install vagrant-hostmanager
+  up:
+    cmds:
+      - task: pki
+      - vagrant up
+      - task: converge

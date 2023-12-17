@@ -1,4 +1,4 @@
 ---
 - hosts: consul
   roles:
-    - role: consul-cluster
+    - role: andrewrothstein.consul_cluster
