@@ -1,4 +1,4 @@
 .vagrant
 .ansible-roles
 .ansible-factcache
-pki-dir
+.pki-dir

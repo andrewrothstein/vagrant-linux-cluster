@@ -3,9 +3,8 @@ version: '3'
 tasks:
   delete:
     cmds:
-      - rm -rf pki-dir/
       - vagrant destroy -f
-      - rm -rf .ansible-roles/ .ansible-factcache/
+      - rm -rf .pki-dir/ -rf .ansible-roles/ .ansible-factcache/
   ping:
     cmds:
       - ansible -m ping vms

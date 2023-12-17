@@ -1,5 +1,5 @@
 ---
-pki_dir: '{{ playbook_dir }}/pki-dir'
+pki_dir: '{{ playbook_dir }}/.pki-dir'
 pki_names:
   - C: US
     L: Englewood
