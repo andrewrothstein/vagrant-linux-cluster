@@ -6,9 +6,8 @@ consul_agent_advertise_addr_config:
   interface: eth1
   ipver: ipv4
 consul_agent_bind_addr_config:
-  ty: network_interface
-  interface: eth1
-  ipver: ipv4
+  ty: static
+  ip: '0.0.0.0'
 consul_agent_client_addr_config:
   ty: network_interface
   interface: eth1

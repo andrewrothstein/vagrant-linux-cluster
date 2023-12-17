@@ -1,7 +1,7 @@
 ---
 version: '3'
 tasks:
-  clean:
+  delete:
     cmds:
       - rm -rf pki-dir/
       - vagrant destroy -f
@@ -23,7 +23,7 @@ tasks:
     cmds:
       - vagrant plugin list
       - vagrant plugin install vagrant-hostmanager
-  up:
+  default:
     cmds:
       - task: pki
       - vagrant up
