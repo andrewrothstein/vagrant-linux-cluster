@@ -1,4 +1,5 @@
 ---
 - hosts: ca
-  roles:
-    - role: andrewrothstein.pki
+  tasks:
+    - ansible.builtin.include_role:
+        name: andrewrothstein.pki

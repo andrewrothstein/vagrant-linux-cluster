@@ -19,22 +19,19 @@ pki_ca:
   sans:
     - ca.vagrant.test
 
-pki_servers:
-  - cname: node-1.vagrant.test
-    profile: client-server
-    sans:
-      - node.vagrant.test
-    altips:
-      - 192.168.99.10
-  - cname: node-2.vagrant.test
-    profile: client-server
-    sans:
-      - node.vagrant.test
-    altips:
-      - 192.168.33.11
-  - cname: node-3.vagrant.test
-    profile: client-server
-    sans:
-      - node.vagrant.test
-    altips:
-      - 192.168.33.12
+vm_count: 3
+vm_domain: vagrant.test
+vm_cidr: '192.168.99.0/24'
+
+pki_servers: |-
+  [
+  {% for i in range(1,vm_count+1) %}
+    {
+      "cname": "node-{{ i }}.{{ vm_domain }}",
+      "profile": "client-server",
+      "sans": ["node-{{ i }}.{{ vm_domain }}"],
+      "altips": ["{{ vm_cidr | ansible.utils.ipaddr(i+9) }}"]
+    }
+    {%- if not loop.last -%},{%- endif -%}
+  {%- endfor -%}
+  ]
