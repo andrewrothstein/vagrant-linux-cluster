@@ -1,8 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'netaddr'
+
+$network = NetAddr::IPv4Net.parse("192.168.99.0/24")
 $num_instances = 3
-$network_prefix = "192.168.99"
 $instance_ram_mb = 2048
 
 Vagrant.configure("2") do |config|
@@ -17,7 +19,7 @@ Vagrant.configure("2") do |config|
     config.vm.define vm_name = "node-#{i}.vagrant.test" do |config|
       config.vm.hostname = vm_name
 
-      ip = "#{$network_prefix}.#{i+9}"
+      ip = "#{$network.nth(i+9)}"
       config.vm.network :private_network, ip: ip
 
       config.vm.provider "virtualbox" do |vb|

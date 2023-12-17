@@ -3,6 +3,7 @@ Useful mechanism for testing Ansible configured distributed systems in small fle
 Prerequisites:
 * virtualbox
 * vagrant plugin install vagrant-hostmanager
+* vagrant plugin install netaddr
 
 In my ~/.ssh/config to prevent the re-creation of ssh host keys at each rebuild from causing problems
 In a production setting always use StrictHostKeyChecking to ensure ur not getting MITMed
