@@ -5,7 +5,12 @@ tasks:
     cmds:
       - vagrant destroy -f
       - rm -rf .pki-dir/ -rf .ansible-roles/ .ansible-factcache/
+  python-bootstrap:
+    cmds:
+      - ansible-playbook python-bootstrap.yml
   ping:
+    deps:
+      - task: python-bootstrap
     cmds:
       - ansible -m ping vms
   converge:

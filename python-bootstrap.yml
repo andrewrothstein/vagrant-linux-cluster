@@ -1,0 +1,22 @@
+---
+- hosts: vms
+  gather_facts: false
+  tasks:
+    - become: true
+      become_user: root
+      name: Installing python3
+      register: bootstrap_output
+      raw: |-
+        set +e
+        type -p apk;
+        if [[ $? == 0 ]];
+        then
+          apk update && apk upgrade && apk add python3
+        else
+          type -p apt;
+          if [[ $? == 0 ]];
+          then
+            export DEBIAN_FRONTEND=noninteractive
+            apt update -yq && apt upgrade -yq && apt install -y python3
+          fi
+        fi
