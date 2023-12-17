@@ -20,21 +20,21 @@ pki_ca:
     - ca.vagrant.test
 
 pki_servers:
-  - cname: alpine-1.vagrant.test
+  - cname: node-1.vagrant.test
     profile: client-server
     sans:
-      - alpine.vagrant.test
+      - node.vagrant.test
     altips:
       - 192.168.99.10
-  - cname: alpine-2.vagrant.test
+  - cname: node-2.vagrant.test
     profile: client-server
     sans:
-      - alpine.vagrant.test
+      - node.vagrant.test
     altips:
       - 192.168.33.11
-  - cname: alpine-3.vagrant.test
+  - cname: node-3.vagrant.test
     profile: client-server
     sans:
-      - alpine.vagrant.test
+      - node.vagrant.test
     altips:
       - 192.168.33.12

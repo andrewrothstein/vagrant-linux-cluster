@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "generic/alpine319"
 
   (1..$num_instances).each do |i|
-    config.vm.define vm_name = "alpine-#{i}.vagrant.test" do |config|
+    config.vm.define vm_name = "node-#{i}.vagrant.test" do |config|
       config.vm.hostname = vm_name
 
       ip = "#{$network_prefix}.#{i+9}"
