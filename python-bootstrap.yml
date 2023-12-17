@@ -18,5 +18,11 @@
           then
             export DEBIAN_FRONTEND=noninteractive
             apt update -yq && apt upgrade -yq && apt install -y python3
+          else
+            type -p pacman;
+            if [[ $? == 0 ]];
+            then
+              pacman -Syu --noconfirm python
+            fi
           fi
         fi
