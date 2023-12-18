@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_host = true
   config.hostmanager.manage_guest = true
 
-  config.vm.box = "generic/arch"
+  config.vm.box = "generic/rocky9"
 
   (1..$num_instances).each do |i|
     config.vm.define vm_name = "node-#{i}.vagrant.test" do |config|

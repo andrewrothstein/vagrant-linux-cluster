@@ -12,6 +12,7 @@ Verified with the following boxes:
 * generic/debian12
 * generic/ubuntu2204
 * generic/arch
+* generic/rocky9
 
 In my ~/.ssh/config to prevent the re-creation of ssh host keys at each rebuild from causing problems
 In a production setting always use StrictHostKeyChecking to ensure ur not getting MITMed

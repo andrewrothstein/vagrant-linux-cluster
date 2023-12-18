@@ -23,6 +23,12 @@
             if [[ $? == 0 ]];
             then
               pacman -Syu --noconfirm python
+            else
+              type -p dnf;
+              if [[ $?! == 0 ]];
+              then
+                dnf update -y && dnf update -y && dnf install -y python3
+              fi
             fi
           fi
         fi
