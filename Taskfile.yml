@@ -31,5 +31,6 @@ tasks:
   default:
     cmds:
       - task: pki
+      - vagrant box update
       - vagrant up
       - task: converge
